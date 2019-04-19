@@ -478,6 +478,14 @@ const SceneManager = connect(
                   cameraState.tilt != tilt ||
                   cameraState.fov != fov
                 ) {
+                  console.log('updating the camera')
+                  console.log("x", cameraState.x, x)
+                  console.log("y", cameraState.y, y)
+                  console.log("z", cameraState.z, z)
+                  console.log("rotation", cameraState.rotation, rotation)
+                  console.log("tilt", cameraState.tilt, tilt)
+                  console.log("fov", cameraState.fov, fov)
+
                   // update the camera state
                   updateObject(cameraId, {
                     x,

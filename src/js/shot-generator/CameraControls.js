@@ -144,6 +144,7 @@ class CameraControls {
     this.object.fov += this.zoomSpeed
     this.object.fov = Math.max(3, this.object.fov)
     this.object.fov = Math.min(71, this.object.fov)
+    console.log('CameraControls.update: fov', this.object.fov, 'zoomSpeed', this.zoomSpeed)
 
     this.zoomSpeed = this.zoomSpeed * 0.0001
 

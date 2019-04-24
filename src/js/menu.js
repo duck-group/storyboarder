@@ -59,12 +59,12 @@ SubMenuFragments.help = [
 ]
 SubMenuFragments.windowing = [
   {
-    label: 'Minimize',
+    label: '最小化 / Minimize',
     accelerator: keystrokeFor("menu:window:minimize"),
     role: 'minimize'
   },
   {
-    label: 'Close Window',
+    label: '关闭窗口 / Close Window',
     accelerator: keystrokeFor("menu:window:close"),
     role: 'close'
   }
@@ -75,7 +75,7 @@ AppMenu.File = () => ({
   label: 'File',
   submenu: [
     {
-      label: 'Open…',
+      label: '打开文件 / Open…',
       accelerator: keystrokeFor('menu:file:open'),
       click (item, focusedWindow, event) {
         ipcRenderer.send('openDialogue')
@@ -85,14 +85,14 @@ AppMenu.File = () => ({
       type: 'separator'
     },
     {
-      label: 'Save',
+      label: '保存 / Save',
       accelerator: keystrokeFor('menu:file:save'),
       click (item, focusedWindow, event) {
         ipcRenderer.send('save')
       }
     },
     {
-      label: 'Save As …',
+      label: '另存为 / Save As …',
       accelerator: keystrokeFor('menu:file:save-as'),
       click (item, focusedWindow, event) {
         ipcRenderer.send('saveAs')
@@ -102,38 +102,38 @@ AppMenu.File = () => ({
       type: 'separator'
     },
     {
-      label: 'Export Animated GIF',
+      label: '导出 GIF 动画 / Export Animated GIF',
       accelerator: keystrokeFor('menu:file:export-animated-gif'),
       click (item, focusedWindow, event) {
         ipcRenderer.send('exportAnimatedGif')
       }
     },
     {
-      label: 'Export Scene for Final Cut Pro X and Premiere',
+      label: '导出为 FCPX 和 PR 序列 / Export Scene for Final Cut Pro X and Premiere',
       click (item, focusedWindow, event) {
         ipcRenderer.send('exportFcp')
       }
     },
     {
-      label: 'Export Scene as Images',
+      label: '导出图片序列 / Export Scene as Images',
       click (item, focusedWindow, event) {
         ipcRenderer.send('exportImages')
       }
     },
     {
-      label: 'Export Video',
+      label: '导出视频 / Export Video',
       click (item, focusedWindow, event) {
         ipcRenderer.send('exportVideo')
       }
     },
     {
-      label: 'Export to Web …',
+      label: '导出至 Web / Export to Web …',
       click (item, focusedWindow, event) {
         ipcRenderer.send('exportWeb')
       }
     },
     {
-      label: 'Export Project as ZIP',
+      label: '导出 ZIP 压缩包 / Export Project as ZIP',
       click (item, focusedWindow, event) {
         ipcRenderer.send('exportZIP')
       }
@@ -142,7 +142,7 @@ AppMenu.File = () => ({
       type: 'separator'
     },
     {
-      label: 'Clean Up Scene…',
+      label: '清理场景 / Clean Up Scene…',
       click (item, focusedWindow, event) {
         ipcRenderer.send('exportCleanup')
       }
@@ -152,7 +152,7 @@ AppMenu.File = () => ({
     },
     {
       accelerator: keystrokeFor('menu:file:print'),
-      label: 'Print or export to PDF…',
+      label: '打印或导出至 PDF / Print or export to PDF…',
       click (item, focusedWindow, event) {
         ipcRenderer.send('exportPDF')
       }
@@ -162,14 +162,14 @@ AppMenu.File = () => ({
     },
     {
       accelerator: keystrokeFor("menu:file:print-worksheet"),
-      label: 'Print a Storyboarder worksheet…',
+      label: '打印故事板工作表 / Print a Storyboarder worksheet…',
       click (item, focusedWindow, event) {
         ipcRenderer.send('printWorksheet')
       }
     },
     {
       accelerator: keystrokeFor("menu:file:import-worksheets"),
-      label: 'Import worksheets…',
+      label: '导入工作表 / Import worksheets…',
       click (item, focusedWindow, event) {
         ipcRenderer.send('importWorksheets')
       }
@@ -178,14 +178,14 @@ AppMenu.File = () => ({
       type: 'separator'
     },
     {
-      label: 'Import Images to New Boards…',
+      label: '导入图片至新的故事板中 / Import Images to New Boards…',
       accelerator: keystrokeFor("menu:file:import-images"),
       click (item, focusedWindow, event) {
         ipcRenderer.send('importImagesDialogue', false)
       }
     },
     {
-      label: 'Import Image and Replace…',
+      label: '导入图片并替换 / Import Image and Replace…',
       accelerator: keystrokeFor("menu:file:import-image-replace"),
       click (item, focusedWindow, event) {
         ipcRenderer.send('importImagesDialogue', true)
@@ -197,14 +197,14 @@ AppMenu.Edit = () => ({
   label: 'Edit',
   submenu: [
     {
-      label: 'Undo',
+      label: '撤销 / Undo',
       accelerator: keystrokeFor('menu:edit:undo'),
       click (item, focusedWindow, event) {
         ipcRenderer.send('undo')
       }
     },
     {
-      label: 'Redo',
+      label: '恢复 / Redo',
       accelerator: keystrokeFor('menu:edit:redo'),
       click (item, focusedWindow, event) {
         ipcRenderer.send('redo')
@@ -214,33 +214,33 @@ AppMenu.Edit = () => ({
       type: 'separator'
     },
     {
-      label: 'Cut',
+      label: '剪切 / Cut',
       accelerator: keystrokeFor('menu:edit:cut'),
       role: 'cut'
     },
     {
-      label: 'Copy',
+      label: '复制 / Copy',
       accelerator: keystrokeFor('menu:edit:copy'),
       click (item, focusedWindow, event) {
         ipcRenderer.send('copy')
       }
     },
     {
-      label: 'Paste',
+      label: '粘贴 / Paste',
       accelerator: keystrokeFor('menu:edit:paste'),
       click (item, focusedWindow, event) {
         ipcRenderer.send('paste')
       }
     },
     {
-      label: 'Paste and Replace',
+      label: '粘贴并替换 / Paste and Replace',
       accelerator: keystrokeFor('menu:edit:paste-replace'),
       click (item, focusedWindow, event) {
         ipcRenderer.send('paste-replace')
       }
     },
     {
-      label: 'Select All',
+      label: '全选 / Select All',
       accelerator: keystrokeFor('menu:edit:select-all'),
       role: 'selectall'
     },
@@ -279,7 +279,7 @@ AppMenu.Navigation = () => ({
   label: 'Navigation',
   submenu: [
     {
-      label: 'Play',
+      label: '播放 / Play',
       click (item, focusedWindow, event) {
         ipcRenderer.send('togglePlayback')
       }
@@ -290,7 +290,7 @@ AppMenu.Navigation = () => ({
     {
       // commented out. we don't route this through the menu.
       // accelerator: keystrokeFor('menu:navigation:previous-board'),
-      label: 'Previous Board',
+      label: '上一个故事板 / Previous Board',
       click (item, focusedWindow, event) {
         ipcRenderer.send('goPreviousBoard')
       }
@@ -298,7 +298,7 @@ AppMenu.Navigation = () => ({
     {
       // commented out. we don't route this through the menu.
       // accelerator: keystrokeFor('menu:navigation:next-board'),
-      label: 'Next Board',
+      label: '下一个故事板 / Next Board',
       click (item, focusedWindow, event) {
         ipcRenderer.send('goNextBoard')
       }
@@ -314,7 +314,7 @@ AppMenu.Navigation = () => ({
     {
       // NOTE for some reason, this accelerator does not trigger a click (CmdOrCtrl+Right)
       accelerator: keystrokeFor('menu:navigation:next-scene'),
-      label: 'Next Scene',
+      label: '下一个场景 / Next Scene',
       click (item, focusedWindow, event) {
         ipcRenderer.send('nextScene')
       }
@@ -348,18 +348,18 @@ AppMenu.Navigation = () => ({
   ]
 })
 AppMenu.Boards = () => ({
-  label: 'Boards',
+  label: '故事板 / Boards',
   submenu: [
     {
       accelerator: keystrokeFor('menu:boards:new-board'),
-      label: 'New Board',
+      label: '创建新的故事板 / New Board',
       click (item, focusedWindow, event) {
         ipcRenderer.send('newBoard', 1)
       }
     },
     {
       accelerator: keystrokeFor('menu:boards:new-board-before'),
-      label: 'New Board Before',
+      label: '在前一个位置创建新的故事板 / New Board Before',
       click (item, focusedWindow, event) {
         ipcRenderer.send('newBoard', -1)
       }
@@ -369,14 +369,14 @@ AppMenu.Boards = () => ({
     },
     {
       accelerator: keystrokeFor('menu:boards:delete-boards'),
-      label: 'Delete Board(s)',
+      label: '删除当前故事板 / Delete Board(s)',
       click (item, focusedWindow, event) {
         ipcRenderer.send('deleteBoards')
       }
     },
     {
       accelerator: keystrokeFor('menu:boards:delete-boards-go-forward'),
-      label: 'Delete Board(s) - Go Forward',
+      label: '删除前一个故事板 / Delete Board(s) - Go Forward',
       click (item, focusedWindow, event) {
         ipcRenderer.send('deleteBoards', 1)
       }
@@ -386,7 +386,7 @@ AppMenu.Boards = () => ({
     },
     {
       accelerator: keystrokeFor('menu:boards:duplicate'),
-      label: 'Duplicate Board',
+      label: '重复 / Duplicate Board',
       click (item, focusedWindow, event) {
         ipcRenderer.send('duplicateBoard')
       }
@@ -428,7 +428,7 @@ AppMenu.Boards = () => ({
   ]
 })
 AppMenu.Tools = () => ({
-  label: 'Tools',
+  label: '工具 / Tools',
   submenu: [
     {
       accelerator: keystrokeFor('menu:tools:light-pencil'),
@@ -557,13 +557,13 @@ AppMenu.Tools = () => ({
       type: 'separator'
     },
     {
-      label: 'Shot Generator',
+      label: '镜头生成器 / Shot Generator',
       click (item, focusedWindow, event) {
         ipcRenderer.send('revealShotGenerator')
       }
     },
     {
-      label: 'Edit in Photoshop',
+      label: '在 PhotoShop 中编辑 / Edit in Photoshop',
       accelerator: keystrokeFor('menu:tools:edit-in-photoshop'),
       click (item, focusedWindow, event) {
         ipcRenderer.send('openInEditor')
@@ -575,7 +575,7 @@ AppMenu.View = () => ({
   label: 'View',
   submenu: [
     {
-      label: 'Cycle View Mode',
+      label: '视图切换 / Cycle View Mode',
       accelerator: keystrokeFor('menu:view:cycle-view-mode'),
       click (item, focusedWindow, event) {
         // NOTE this is only triggered by menu directly, not by key
@@ -583,7 +583,7 @@ AppMenu.View = () => ({
       }
     },
     {
-      label: 'Reverse Cycle View Mode',
+      label: '反向视图切换 / Reverse Cycle View Mode',
       accelerator: keystrokeFor('menu:view:cycle-view-mode-reverse'),
       click (item, focusedWindow, event) {
         // NOTE this is only triggered by menu directly, not by key
@@ -594,38 +594,38 @@ AppMenu.View = () => ({
       type: 'separator'
     },
     {
-      label: 'Toggle Grid Guide',
+      label: '显示网格 / Toggle Grid Guide',
       click (item, focusedWindow, event) {
         ipcRenderer.send('toggleGuide', 'grid')
       }
     },
     {
-      label: 'Toggle Center Guide',
+      label: '显示中心线 / Toggle Center Guide',
       click (item, focusedWindow, event) {
         ipcRenderer.send('toggleGuide', 'center')
       }
     },
     {
-      label: 'Toggle Thirds Guide',
+      label: '显示三分线 / Toggle Thirds Guide',
       click (item, focusedWindow, event) {
         ipcRenderer.send('toggleGuide', 'thirds')
       }
     },
+    // {
+    //   label: 'Toggle 3D Guide',
+    //   click (item, focusedWindow, event) {
+    //     ipcRenderer.send('toggleGuide', 'perspective')
+    //   }
+    // },
     {
-      label: 'Toggle 3D Guide',
-      click (item, focusedWindow, event) {
-        ipcRenderer.send('toggleGuide', 'perspective')
-      }
-    },
-    {
-      label: 'Toggle Onion Skin',
+      label: '显示描边 / Toggle Onion Skin',
       accelerator: keystrokeFor('menu:view:onion-skin'),
       click (item, focusedWindow, event) {
         ipcRenderer.send('toggleOnionSkin')
       }
     },
     {
-      label: 'Toggle Captions',
+      label: '显示字幕说明 / Toggle Captions',
       accelerator: keystrokeFor('menu:view:toggle-captions'),
       click (item, focusedWindow, event) {
         ipcRenderer.send('toggleCaptions')
@@ -635,7 +635,7 @@ AppMenu.View = () => ({
       type: 'separator'
     },
     {
-      label: 'Toggle Boards/Timeline Mode',
+      label: '故事板/时间线模式切换 / Toggle Boards/Timeline Mode',
       accelerator: keystrokeFor('menu:view:toggle-timeline'),
       click (item, focusedWindow, event) {
         ipcRenderer.send('toggleTimeline')
@@ -653,21 +653,21 @@ AppMenu.View = () => ({
       role: 'togglefullscreen'
     },
     {
-      label: 'Actual Size',
+      label: '实际大小 / Actual Size',
       accelerator: keystrokeFor("menu:view:zoom-reset"),
       click (item, focusedWindow, event) {
         ipcRenderer.send('zoomReset')
       }
     },
     {
-      label: 'Zoom In',
+      label: '放大 / Zoom In',
       accelerator: keystrokeFor("menu:view:zoom-in"),
       click (item, focusedWindow, event) {
         ipcRenderer.send('zoomIn')
       }
     },
     {
-      label: 'Zoom Out',
+      label: '缩小 / Zoom Out',
       accelerator: keystrokeFor("menu:view:zoom-out"),
       click (item, focusedWindow, event) {
         ipcRenderer.send('zoomOut')
@@ -679,7 +679,7 @@ AppMenu.window = () => {
   let extension = process.platform == 'darwin'
     ? [
         {
-          label: 'Zoom',
+          label: '缩放 / Zoom',
           role: 'zoom'
         },
         {
@@ -800,10 +800,10 @@ const template = [
 const welcomeTemplate = [
   ...AppMenu.about({ includePreferences: false }),
   {
-    label: 'File',
+    label: '文件 / File',
     submenu: [
       {
-        label: 'Open…',
+        label: '打开 / Open…',
         accelerator: keystrokeFor('menu:file:open'),
         click (item, focusedWindow, event) {
           ipcRenderer.send('openDialogue')
@@ -812,7 +812,7 @@ const welcomeTemplate = [
     ]
   },
   {
-    label: 'Edit',
+    label: '编辑 / Edit',
     submenu: [
       // {role: 'undo'},
       // {role: 'redo'},
@@ -826,7 +826,7 @@ const welcomeTemplate = [
     ]
   },
   {
-    label: 'View',
+    label: '视图 / View',
     submenu: [
       ...SubMenuFragments.View
     ]
@@ -860,7 +860,7 @@ const shotGeneratorMenu = [
     ]
   },
   {
-    label: 'Edit',
+    label: '编辑 / Edit',
     submenu: [
       // {role: 'undo'},
       // {role: 'redo'},
@@ -872,7 +872,7 @@ const shotGeneratorMenu = [
       
       {
         accelerator: 'CommandOrControl+d',
-        label: 'Duplicate',
+        label: '重复 / Duplicate',
         click () {
           ipcRenderer.send('shot-generator:object:duplicate')
         }
@@ -885,7 +885,7 @@ const shotGeneratorMenu = [
     ]
   },
   {
-    label: 'View',
+    label: '视图 / View',
     submenu: [
       ...SubMenuFragments.View,
       {

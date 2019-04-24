@@ -341,11 +341,11 @@ class Toolbar extends EventEmitter {
     let gridEl = this.el.querySelector('#toolbar-grid')
     let centerEl = this.el.querySelector('#toolbar-center')
     let thirdsEl = this.el.querySelector('#toolbar-thirds')
-    let perspectiveEl = this.el.querySelector('#toolbar-perspective')
+    // let perspectiveEl = this.el.querySelector('#toolbar-perspective')
     gridEl.classList.toggle('active', state.toolbar.grid)
     centerEl.classList.toggle('active', state.toolbar.center)
     thirdsEl.classList.toggle('active', state.toolbar.thirds)
-    perspectiveEl.classList.toggle('active', state.toolbar.perspective)
+    // perspectiveEl.classList.toggle('active', state.toolbar.perspective)
 
     let onionEl = this.el.querySelector('#toolbar-onion')
     onionEl.classList.toggle('active', state.toolbar.onion)

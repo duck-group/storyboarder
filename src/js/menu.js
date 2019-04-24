@@ -17,7 +17,7 @@ SubMenuFragments.View = [
   ...isDev
     ? [
         {
-          label: 'Reload',
+          label: '重新加载 / Reload',
           accelerator: 'CmdOrCtrl+R',
           click (item, focusedWindow) {
             if (focusedWindow) focusedWindow.reload()
@@ -26,7 +26,7 @@ SubMenuFragments.View = [
       ]
     : [],
   {
-    label: 'Toggle Developer Tools',
+    label: '开发者工具 / Toggle Developer Tools',
     accelerator: keystrokeFor('menu:view:toggle-developer-tools'),
     click (item, focusedWindow) {
       if (focusedWindow) focusedWindow.webContents.toggleDevTools()
@@ -72,7 +72,7 @@ SubMenuFragments.windowing = [
 
 let AppMenu = {}
 AppMenu.File = () => ({
-  label: 'File',
+  label: '文件',
   submenu: [
     {
       label: '打开文件 / Open…',
@@ -194,7 +194,7 @@ AppMenu.File = () => ({
   ]
 })
 AppMenu.Edit = () => ({
-  label: 'Edit',
+  label: '编辑',
   submenu: [
     {
       label: '撤销 / Undo',
@@ -252,7 +252,7 @@ AppMenu.Edit = () => ({
           type: 'separator'
         },
         {
-          label: 'Preferences',
+          label: '性能 / Preferences',
           accelerator: keystrokeFor('menu:edit:preferences'),
           click: () => ipcRenderer.send('preferences')
         }
@@ -276,7 +276,8 @@ AppMenu.Edit = () => ({
   ]
 })
 AppMenu.Navigation = () => ({
-  label: 'Navigation',
+  label: '导航',
+  value: 'Navigation',
   submenu: [
     {
       label: '播放 / Play',
@@ -290,7 +291,7 @@ AppMenu.Navigation = () => ({
     {
       // commented out. we don't route this through the menu.
       // accelerator: keystrokeFor('menu:navigation:previous-board'),
-      label: '上一个故事板 / Previous Board',
+      label: '上一个 / Previous Board',
       click (item, focusedWindow, event) {
         ipcRenderer.send('goPreviousBoard')
       }
@@ -298,7 +299,7 @@ AppMenu.Navigation = () => ({
     {
       // commented out. we don't route this through the menu.
       // accelerator: keystrokeFor('menu:navigation:next-board'),
-      label: '下一个故事板 / Next Board',
+      label: '下一个 / Next Board',
       click (item, focusedWindow, event) {
         ipcRenderer.send('goNextBoard')
       }
@@ -306,7 +307,7 @@ AppMenu.Navigation = () => ({
     {
       // NOTE for some reason, this accelerator does not trigger a click (CmdOrCtrl+Left)
       accelerator: keystrokeFor('menu:navigation:previous-scene'),
-      label: 'Previous Scene',
+      label: '第一个 / Previous Scene',
       click (item, focusedWindow, event) {
         ipcRenderer.send('previousScene')
       }
@@ -314,7 +315,7 @@ AppMenu.Navigation = () => ({
     {
       // NOTE for some reason, this accelerator does not trigger a click (CmdOrCtrl+Right)
       accelerator: keystrokeFor('menu:navigation:next-scene'),
-      label: '下一个场景 / Next Scene',
+      label: '最后一个 / Next Scene',
       click (item, focusedWindow, event) {
         ipcRenderer.send('nextScene')
       }
@@ -348,18 +349,18 @@ AppMenu.Navigation = () => ({
   ]
 })
 AppMenu.Boards = () => ({
-  label: '故事板 / Boards',
+  label: '故事板',
   submenu: [
     {
       accelerator: keystrokeFor('menu:boards:new-board'),
-      label: '创建新的故事板 / New Board',
+      label: '创建新故事板 / New Board',
       click (item, focusedWindow, event) {
         ipcRenderer.send('newBoard', 1)
       }
     },
     {
       accelerator: keystrokeFor('menu:boards:new-board-before'),
-      label: '在前一个位置创建新的故事板 / New Board Before',
+      label: '在当前位置前创建 / New Board Before',
       click (item, focusedWindow, event) {
         ipcRenderer.send('newBoard', -1)
       }
@@ -396,14 +397,14 @@ AppMenu.Boards = () => ({
     },
     {
       accelerator: keystrokeFor('menu:boards:reorder-left'),
-      label: 'Reorder Left',
+      label: '往前移动 / Reorder Left',
       click (item, focusedWindow, event) {
         ipcRenderer.send('reorderBoardsLeft')
       }
     },
     {
       accelerator: keystrokeFor('menu:boards:reorder-right'),
-      label: 'Reorder Right',
+      label: '往后移动 / Reorder Right',
       click (item, focusedWindow, event) {
         ipcRenderer.send('reorderBoardsRight')
       }
@@ -413,14 +414,14 @@ AppMenu.Boards = () => ({
     },
     {
       accelerator: keystrokeFor("menu:boards:add-audio-file"),
-      label: 'Add Audio File…',
+      label: '添加音频文件 / Add Audio File…',
       click (item, focusedWindow, event) {
         ipcRenderer.send('addAudioFile')
       }
     },
     {
       accelerator: keystrokeFor("menu:boards:toggle-new-shot"),
-      label: 'Toggle Board as New Shot',
+      label: '转换为镜头 / Toggle Board as New Shot',
       click (item, focusedWindow, event) {
         ipcRenderer.send('toggleNewShot')
       }
@@ -428,7 +429,7 @@ AppMenu.Boards = () => ({
   ]
 })
 AppMenu.Tools = () => ({
-  label: '工具 / Tools',
+  label: '工具',
   submenu: [
     {
       accelerator: keystrokeFor('menu:tools:light-pencil'),
@@ -542,13 +543,13 @@ AppMenu.Tools = () => ({
     },
     {
       accelerator: keystrokeFor("menu:tools:flip-horizontal"),
-      label: 'Flip Horizontal',
+      label: '水平翻转 / Flip Horizontal',
       click (item, focusedWindow, event) {
         ipcRenderer.send('flipBoard')
       }
     },
     {
-      label: 'Flip Vertical',
+      label: '垂直翻转 / Flip Vertical',
       click (item, focusedWindow, event) {
         ipcRenderer.send('flipBoard', true)
       }
@@ -572,10 +573,10 @@ AppMenu.Tools = () => ({
   ]
 })
 AppMenu.View = () => ({
-  label: 'View',
+  label: '视图',
   submenu: [
     {
-      label: '视图切换 / Cycle View Mode',
+      label: '顺序切换显示模式 / Cycle View Mode',
       accelerator: keystrokeFor('menu:view:cycle-view-mode'),
       click (item, focusedWindow, event) {
         // NOTE this is only triggered by menu directly, not by key
@@ -583,7 +584,7 @@ AppMenu.View = () => ({
       }
     },
     {
-      label: '反向视图切换 / Reverse Cycle View Mode',
+      label: '逆序切换显示模式 / Reverse Cycle View Mode',
       accelerator: keystrokeFor('menu:view:cycle-view-mode-reverse'),
       click (item, focusedWindow, event) {
         // NOTE this is only triggered by menu directly, not by key
@@ -635,7 +636,7 @@ AppMenu.View = () => ({
       type: 'separator'
     },
     {
-      label: '故事板/时间线模式切换 / Toggle Boards/Timeline Mode',
+      label: '切换故事板/时间线模式 / Toggle Boards/Timeline Mode',
       accelerator: keystrokeFor('menu:view:toggle-timeline'),
       click (item, focusedWindow, event) {
         ipcRenderer.send('toggleTimeline')
@@ -649,6 +650,7 @@ AppMenu.View = () => ({
       type: 'separator'
     },
     {
+      label: '全屏模式 / Toggle Full Screen',
       accelerator: keystrokeFor("menu:view:toggle-full-screen"),
       role: 'togglefullscreen'
     },
@@ -693,6 +695,7 @@ AppMenu.window = () => {
     : []
 
   return {
+    label: '窗口',
     role: 'window',
     submenu: [
       ...SubMenuFragments.windowing,
@@ -701,6 +704,7 @@ AppMenu.window = () => {
   }
 }
 AppMenu.help = () => ({
+  label: '帮助',
   role: 'help',
   submenu: [
     ...SubMenuFragments.help,
@@ -800,7 +804,7 @@ const template = [
 const welcomeTemplate = [
   ...AppMenu.about({ includePreferences: false }),
   {
-    label: '文件 / File',
+    label: '文件',
     submenu: [
       {
         label: '打开 / Open…',
@@ -812,7 +816,7 @@ const welcomeTemplate = [
     ]
   },
   {
-    label: '编辑 / Edit',
+    label: '编辑',
     submenu: [
       // {role: 'undo'},
       // {role: 'redo'},
@@ -826,7 +830,7 @@ const welcomeTemplate = [
     ]
   },
   {
-    label: '视图 / View',
+    label: '视图',
     submenu: [
       ...SubMenuFragments.View
     ]
@@ -848,7 +852,7 @@ const welcomeTemplate = [
 const shotGeneratorMenu = [
   ...AppMenu.about({ includePreferences: false }),
   {
-    label: 'File',
+    label: '文件',
     submenu: [
       {
         label: 'Open…',
@@ -860,7 +864,7 @@ const shotGeneratorMenu = [
     ]
   },
   {
-    label: '编辑 / Edit',
+    label: '编辑',
     submenu: [
       // {role: 'undo'},
       // {role: 'redo'},
@@ -885,7 +889,7 @@ const shotGeneratorMenu = [
     ]
   },
   {
-    label: '视图 / View',
+    label: '视图',
     submenu: [
       ...SubMenuFragments.View,
       {
@@ -927,7 +931,7 @@ const setShotGeneratorMenu = () => {
 
 const setEnableAudition = value =>
   Menu
-    .getApplicationMenu().items.find(n => n.label === 'Navigation')
+    .getApplicationMenu().items.find(n => n.value === 'Navigation')
     .submenu.items.find(n => n.label === 'Audition Board Audio')
     .checked = value
 
